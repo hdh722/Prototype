@@ -5,7 +5,7 @@ public class Char_move : MonoBehaviour
     [SerializeField] public float moveSpeed = 5f;
     void Start()
     {
-        Debug.Log("testttttttt");
+        Debug.Log("testttttt");
     }
 
     void Update()

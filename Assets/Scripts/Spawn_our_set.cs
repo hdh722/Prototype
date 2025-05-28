@@ -7,6 +7,10 @@ public class Spawn_our_set : MonoBehaviour
     public float spawnInterval = 3f;      // 소환 주기
     public float lifetime = 5f;           // 소환 후 유지 시간
     public float fixedX = 0f;             // 고정 X 위치 (또는 랜덤도 가능)
+    public float Attack = 1f;
+    public float health = 1f;
+    [Tooltip("소환되는 오브젝트의 태그를 지정하세요.")]
+    public string spawnTag = "Team_our";  // 인스펙터에서 지정할 태그
 
     void SpawnObject()
     {
@@ -21,10 +25,10 @@ public class Spawn_our_set : MonoBehaviour
 
         // 크기, 태그 설정 등 추가
         obj.transform.localScale = new Vector3(30f, 30f, 1f);
-        obj.tag = "Team_our";
+        obj.tag = spawnTag; // 인스펙터에서 지정한 태그 사용
 
         // 시간 지나면 자동 삭제
-        Destroy(obj, 5f);
+        Destroy(obj, lifetime);
     }
     void Start()
     {

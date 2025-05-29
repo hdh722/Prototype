@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Team_our
+  - Team_another
+  - Pause_ui
   layers:
   - Default
   - TransparentFX

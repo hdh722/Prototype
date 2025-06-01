@@ -24,7 +24,7 @@ public class Button_Event : MonoBehaviour
         if (pauseUI != null)
         {
             Vector3 pos = pauseUI.transform.position;
-            pos.x = 496f;
+            pos.x = 410f;
             pauseUI.transform.position = pos;
         }
     }

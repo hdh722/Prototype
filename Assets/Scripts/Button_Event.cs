@@ -64,4 +64,10 @@ public class Button_Event : MonoBehaviour
         Debug.Log("게임 시작");
         SceneManager.LoadScene("Stage_1");
     }
+    public void Touchtostart()
+    {
+        Debug.Log("게임 입장");
+        SceneManager.LoadScene("Lobby");
+    }
+
 }

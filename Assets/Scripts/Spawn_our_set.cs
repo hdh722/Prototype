@@ -5,9 +5,8 @@ public class Spawn_our_set : MonoBehaviour
     public GameObject objectToSpawn;      // 소환할 프리팹
     public BoxCollider2D spawnArea;       // 스폰 범위 기준
     public float spawnInterval = 3f;      // 소환 주기
-    public float lifetime = 5f;           // 소환 후 유지 시간
     public float fixedX = 111f;           // 고정 X 위치
-    public float fixedY = 0f;             // 고정 Y 위치
+    public float fixedY = 36.5f;          // 고정 Y 위치
     public float Attack = 1f;
     public float health = 1f;
     [Tooltip("소환되는 오브젝트의 태그를 지정하세요.")]
@@ -22,22 +21,53 @@ public class Spawn_our_set : MonoBehaviour
             spawnCount = 2;
         else if (upgradeScore == 2)
             spawnCount = 3;
+        else if (upgradeScore == 3)
+            spawnCount = 4;
 
         for (int i = 0; i < spawnCount; i++)
         {
-            float y = fixedY + 36.5f * i;
+            float y = fixedY + 73.0f * i;
             Vector2 spawnPos = new Vector2(fixedX, y);
 
             GameObject obj = Instantiate(objectToSpawn, spawnPos, Quaternion.identity);
             obj.transform.localScale = new Vector3(30f, 30f, 1f);
             obj.tag = spawnTag;
-            Destroy(obj, lifetime);
+            obj.AddComponent<Move_our>(); // 이동 및 정지 스크립트 추가
+        }
+    }
+
+    void SpawnObjectAtSpecialY()
+    {
+        int spawnCount = 1;
+
+        for (int i = 0; i < spawnCount; i++)
+        {
+            float y = (fixedY + 109.5f) + 73.0f * i;
+            Vector2 spawnPos = new Vector2(fixedX, y);
+
+            GameObject obj = Instantiate(objectToSpawn, spawnPos, Quaternion.identity);
+            obj.transform.localScale = new Vector3(30f, 30f, 1f);
+            obj.tag = spawnTag;
+            obj.AddComponent<Move_our>();
+
+            var spriteRenderer = obj.GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.color = Color.cyan;
+            }
         }
     }
 
     void Start()
     {
-        // 시작 후 일정 시간마다 SpawnObject() 실행
         InvokeRepeating(nameof(SpawnObject), 0f, spawnInterval);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnObjectAtSpecialY();
+        }
     }
 }

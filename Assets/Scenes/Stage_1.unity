@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 0
 --- !u!1 &725511114
@@ -863,9 +863,8 @@ MonoBehaviour:
   objectToSpawn: {fileID: 2813193304562590092, guid: ad0573d09c2ce1f4a96851e03b480c27, type: 3}
   spawnArea: {fileID: 329200431}
   spawnInterval: 3
-  lifetime: 15
   fixedX: 111
-  fixedY: 0
+  fixedY: 36.5
   Attack: 1
   health: 10
   spawnTag: Team_our

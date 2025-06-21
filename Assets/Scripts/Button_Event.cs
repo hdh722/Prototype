@@ -61,6 +61,7 @@ public class Button_Event : MonoBehaviour
     }
     public void Gogame()
     {
+        Time.timeScale = 1f;
         Debug.Log("게임 시작");
         SceneManager.LoadScene("Stage_1");
     }

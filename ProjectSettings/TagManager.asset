@@ -8,6 +8,8 @@ TagManager:
   - Team_another
   - Pause_ui
   - Gameover_ui
+  - Small_Stone
+  - Gameclear_ui
   layers:
   - Default
   - TransparentFX

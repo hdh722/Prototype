@@ -5,9 +5,9 @@ public class Move_our : MonoBehaviour
     public float speed = 0f;
     private bool isMoving = true;
 
-    float health = 5f;
-    float attack = 1f;
-    float attackSpeed = 2f;
+    public float health = 5f;
+    public float attack = 1f;
+    public float attackSpeed = 2f;
 
     private bool isAttacking = false;
 

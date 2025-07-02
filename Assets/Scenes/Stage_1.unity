@@ -6686,6 +6686,7 @@ MonoBehaviour:
   health: 10
   spawnTag: Team_our
   upgradeScore: 0
+  Board_Defence: {fileID: 2042130387}
 --- !u!4 &948099989
 Transform:
   m_ObjectHideFlags: 0
@@ -7676,7 +7677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9733b377554ccbb418ba7d6483a14785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 350
+  health: 250
   healthText: {fileID: 637428898}
 --- !u!1 &1423848950
 GameObject:

@@ -14,9 +14,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 729f42793b00e81419eab301f68d0d41
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Map_Wating.unity
     guid: 07709c480b72dfd48923eb785ef7cd2d
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: 6ce8c6d5a1ba21844b082e23a826bf4f
+  - enabled: 1
+    path: Assets/Scenes/Stage_1.unity
+    guid: b52e0a697ffc5f54bb8c554a9407391e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -16,7 +16,7 @@ public class Stone_set : MonoBehaviour
     {
         while (true)
         {
-            float waitTime = Random.Range(0.5f, 2f);
+            float waitTime = Random.Range(2.5f, 5f);
             yield return new WaitForSeconds(waitTime);
 
             // y값을 49~255 사이에서 랜덤으로 설정

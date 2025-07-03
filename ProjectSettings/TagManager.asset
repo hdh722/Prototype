@@ -10,6 +10,7 @@ TagManager:
   - Gameover_ui
   - Small_Stone
   - Gameclear_ui
+  - LockStone
   layers:
   - Default
   - TransparentFX

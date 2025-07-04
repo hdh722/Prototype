@@ -3,7 +3,7 @@ using UnityEngine;
 public class Game_end : MonoBehaviour
 {
     private Helath_our ourHealth;
-    private Another_health anotherHealth;
+    public Another_health anotherHealth;
     private Timer timer; // Timer 참조 추가
     private bool ourTeamGameOver = false;
     private bool anotherTeamGameOver = false;
@@ -26,10 +26,22 @@ public class Game_end : MonoBehaviour
             GameOverOurTeam();
         }
 
-        if (anotherHealth != null && !anotherTeamGameOver && anotherHealth.health <= 0)
+        // "Team_Another" 이름과 "Team_another" 태그를 가진 오브젝트가 파괴되었을 때만 게임오버 처리
+        GameObject[] candidates = GameObject.FindGameObjectsWithTag("Team_another");
+        GameObject target = null;
+        foreach (var obj in candidates)
+        {
+            if (obj.name == "Team_Another")
+            {
+                target = obj;
+                break;
+            }
+        }
+        if (!anotherTeamGameOver && target == null)
         {
             anotherTeamGameOver = true;
             GameOverAnotherTeam();
+            Debug.Log("파괴");
         }
 
         // 타이머가 0 이하가 되면 게임 종료

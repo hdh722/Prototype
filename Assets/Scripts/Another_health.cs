@@ -27,5 +27,10 @@ public class Another_health : MonoBehaviour
         health -= damage;
         if (health < 0) health = 0;
         UpdateHealthUI();
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

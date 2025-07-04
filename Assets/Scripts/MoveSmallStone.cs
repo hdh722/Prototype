@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class MoveSmallStone : MonoBehaviour
 {
-    public float speed = 100f; // 초당 이동 속도
+    public float speed = 200f; // 초당 이동 속도
 
     void Update()
     {
         float currentSpeed = speed;
-        if (transform.position.x <= 600f)
+        if (transform.position.x <= 650f)
         {
-            currentSpeed += 40f;
+            currentSpeed += 70f;
         }
         if (transform.position.x <= 350f)
         {
-            currentSpeed += 70f;
+            currentSpeed += 130f;
         }
         transform.position += Vector3.left * currentSpeed * Time.deltaTime;
 
@@ -24,7 +24,7 @@ public class MoveSmallStone : MonoBehaviour
             Helath_our healthTarget = FindObjectOfType<Helath_our>();
             if (healthTarget != null)
             {
-                healthTarget.TakeDamage(15);
+                healthTarget.TakeDamage(45);
             }
             Destroy(gameObject);
         }

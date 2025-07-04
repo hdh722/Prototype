@@ -15,7 +15,7 @@ public class Spawn_our_set : MonoBehaviour
     public int upgradeScore = 0; // Upgrade 점수 추가
     public GameObject Board_Defence; // 인스펙터에서 할당
 
-    private float specialYCooldown = 1.0f; // 쿨타임(초)
+    [SerializeField]private float specialYCooldown = 3.0f; // 쿨타임(초)
     private float lastSpecialYTime = -999f; // 마지막 실행 시각
 
     void SpawnObject()
@@ -78,13 +78,33 @@ public class Spawn_our_set : MonoBehaviour
         if (Board_Defence != null)
         {
             fixedY = Board_Defence.transform.position.y;
+
+            var sr = Board_Defence.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                if (specialYCooldown >= 0.1f)
+                    sr.color = Color.red;
+                else if (Mathf.Approximately(specialYCooldown, 0f))
+                    sr.color = Color.yellow;
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        // 쿨타임이 0일 때만 스페이스바로 소환 및 쿨타임 설정
+        if (Mathf.Approximately(specialYCooldown, 0f) && Input.GetKeyDown(KeyCode.Space))
         {
-            if (Time.time - lastSpecialYTime >= specialYCooldown)
+            specialYCooldown = 3f;
+            SpawnObjectAtSpecialY();
+            lastSpecialYTime = Time.time;
+        }
+
+        // 쿨타임이 0.1 이상이면 1초에 1씩 감소
+        if (specialYCooldown >= 0.1f)
+        {
+            if (Time.time - lastSpecialYTime >= 1f)
             {
-                SpawnObjectAtSpecialY();
+                specialYCooldown -= 1f;
+                if (specialYCooldown < 0f)
+                    specialYCooldown = 0f;
                 lastSpecialYTime = Time.time;
             }
         }

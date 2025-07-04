@@ -5,6 +5,7 @@ public class Stone_set : MonoBehaviour
 {
     public GameObject objectToSpawn; // 소환할 프리팹
     public float fixedX = 711f;      // 고정 X 위치
+    public float fixedZ = -0.1f;      // 고정 z 위치
     public string spawnTag = "Small_Stone"; // 소환되는 오브젝트의 태그
 
     void Start()

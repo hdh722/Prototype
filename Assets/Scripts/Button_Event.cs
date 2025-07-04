@@ -59,11 +59,29 @@ public class Button_Event : MonoBehaviour
     {
         Debug.Log("설정");
     }
-    public void Gogame()
+    public void Stage1()
     {
         Time.timeScale = 1f;
         Debug.Log("게임 시작");
         SceneManager.LoadScene("Stage_1");
+    }
+    public void Stage2()
+    {
+        Time.timeScale = 1f;
+        Debug.Log("게임 시작");
+        SceneManager.LoadScene("Stage_2");
+    }
+    public void Stage3()
+    {
+        Time.timeScale = 1f;
+        Debug.Log("게임 시작");
+        SceneManager.LoadScene("Stage_3");
+    }
+    public void Stage4()
+    {
+        Time.timeScale = 1f;
+        Debug.Log("게임 시작");
+        SceneManager.LoadScene("Stage_4");
     }
     public void Touchtostart()
     {

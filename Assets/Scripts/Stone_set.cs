@@ -8,6 +8,9 @@ public class Stone_set : MonoBehaviour
     public float fixedZ = -0.1f;      // 고정 z 위치
     public string spawnTag = "Small_Stone"; // 소환되는 오브젝트의 태그
 
+    // 사용할 Y값 배열
+    private readonly float[] yPositions = { 334.3f, 279.3f, 226.3f, 170.5f, 115.5f };
+
     void Start()
     {
         StartCoroutine(SpawnRoutine());
@@ -20,8 +23,8 @@ public class Stone_set : MonoBehaviour
             float waitTime = Random.Range(2.5f, 5f);
             yield return new WaitForSeconds(waitTime);
 
-            // y값을 49~255 사이에서 랜덤으로 설정
-            float randomY = Random.Range(49f, 255f);
+            // 5개 중 랜덤으로 y값 선택
+            float randomY = yPositions[Random.Range(0, yPositions.Length)];
             Vector2 spawnPos = new Vector2(fixedX, randomY);
 
             GameObject obj = Instantiate(objectToSpawn, spawnPos, Quaternion.identity);

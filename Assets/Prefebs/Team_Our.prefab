@@ -150,10 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5b32a259a34cb43a42a27d49047aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 125
   health: 10
   attack: 1
-  attackSpeed: 1
   hitParticlePrefab: {fileID: 4244586173328160758}
 --- !u!114 &-4663657205908618777
 MonoBehaviour:

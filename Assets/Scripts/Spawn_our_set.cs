@@ -12,7 +12,6 @@ public class Spawn_our_set : MonoBehaviour
     [Tooltip("소환되는 오브젝트의 태그를 지정하세요.")]
     public string spawnTag = "Team_our";  // 인스펙터에서 지정할 태그
 
-    public int upgradeScore = 0; // Upgrade 점수 추가
     public GameObject Board_Defence; // 인스펙터에서 할당
 
     [SerializeField]private float specialYCooldown = 3.0f; // 쿨타임(초)
@@ -20,17 +19,13 @@ public class Spawn_our_set : MonoBehaviour
 
     void SpawnObject()
     {
-        int spawnCount = 1;
-        if (upgradeScore == 1)
-            spawnCount = 2;
-        else if (upgradeScore == 2)
-            spawnCount = 3;
-        else if (upgradeScore == 3)
-            spawnCount = 4;
+        float[] yPositions = { 334.3f, 279.3f, 226.3f, 170.5f, 115.5f };
+
+        int spawnCount = 1; // 필요시 spawnCount를 조정하세요
 
         for (int i = 0; i < spawnCount; i++)
         {
-            float y = fixedY + 73.0f * i;
+            float y = yPositions[Random.Range(0, yPositions.Length)];
             Vector2 spawnPos = new Vector2(fixedX, y);
 
             GameObject obj = Instantiate(objectToSpawn, spawnPos, Quaternion.identity);
@@ -66,28 +61,12 @@ public class Spawn_our_set : MonoBehaviour
 
     void Start()
     {
-        if (Board_Defence != null)
-        {
-            fixedY = Board_Defence.transform.position.y;
-        }
-        InvokeRepeating(nameof(SpawnObject), 0f, spawnInterval);
+        // 일정 시간마다 SpawnObject를 자동으로 호출
+        InvokeRepeating(nameof(SpawnObject), 3f, spawnInterval);
     }
 
     void Update()
     {
-        if (Board_Defence != null)
-        {
-            fixedY = Board_Defence.transform.position.y;
-
-            var sr = Board_Defence.GetComponent<SpriteRenderer>();
-            if (sr != null)
-            {
-                if (specialYCooldown >= 0.1f)
-                    sr.color = Color.red;
-                else if (Mathf.Approximately(specialYCooldown, 0f))
-                    sr.color = Color.yellow;
-            }
-        }
 
         // 쿨타임이 0일 때만 스페이스바로 소환 및 쿨타임 설정
         if (Mathf.Approximately(specialYCooldown, 0f) && Input.GetKeyDown(KeyCode.Space))

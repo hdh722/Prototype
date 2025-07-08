@@ -69,23 +69,23 @@ public class Spawn_our_set : MonoBehaviour
     {
 
         // 쿨타임이 0일 때만 스페이스바로 소환 및 쿨타임 설정
-        if (Mathf.Approximately(specialYCooldown, 0f) && Input.GetKeyDown(KeyCode.Space))
-        {
-            specialYCooldown = 3f;
-            SpawnObjectAtSpecialY();
-            lastSpecialYTime = Time.time;
-        }
+        //if (Mathf.Approximately(specialYCooldown, 0f) && Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    specialYCooldown = 3f;
+        //    SpawnObjectAtSpecialY();
+        //    lastSpecialYTime = Time.time;
+        //}
 
         // 쿨타임이 0.1 이상이면 1초에 1씩 감소
-        if (specialYCooldown >= 0.1f)
-        {
-            if (Time.time - lastSpecialYTime >= 1f)
-            {
-                specialYCooldown -= 1f;
-                if (specialYCooldown < 0f)
-                    specialYCooldown = 0f;
-                lastSpecialYTime = Time.time;
-            }
-        }
+        //if (specialYCooldown >= 0.1f)
+        //{
+        //    if (Time.time - lastSpecialYTime >= 1f)
+        //    {
+        //        specialYCooldown -= 1f;
+        //        if (specialYCooldown < 0f)
+        //            specialYCooldown = 0f;
+        //        lastSpecialYTime = Time.time;
+        //    }
+        //}
     }
 }

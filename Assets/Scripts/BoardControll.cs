@@ -18,13 +18,13 @@ public class BoardControll : MonoBehaviour
         }
 
         // y값이 범위를 벗어나면 경계값으로 고정
-        if (pos.y < 49f)
+        if (pos.y > 334f)
         {
-            pos.y = 49f;
+            pos.y = 334f;
         }
-        else if (pos.y > 255f)
+        else if (pos.y < 115f)
         {
-            pos.y = 255f;
+            pos.y = 115f;
         }
 
         transform.position = pos;

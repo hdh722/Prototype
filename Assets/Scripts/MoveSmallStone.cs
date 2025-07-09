@@ -20,8 +20,9 @@ public class MoveSmallStone : MonoBehaviour
         // x가 100 이하라면 파괴 및 피해
         if (transform.position.x <= 100f)
         {
+            Debug.Log("SmallStone 충돌, 데미지 적용 시도");
             // Helath_our에 데미지 주기 (또는 Another_health로 변경 가능)
-            Helath_our healthTarget = FindObjectOfType<Helath_our>();
+            Health_our healthTarget = FindObjectOfType<Health_our>();
             if (healthTarget != null)
             {
                 healthTarget.TakeDamage(45);

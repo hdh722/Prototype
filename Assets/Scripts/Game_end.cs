@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Game_end : MonoBehaviour
 {
-    private Helath_our ourHealth;
+    private Health_our ourHealth;
     public Another_health anotherHealth;
     private Timer timer; // Timer 참조 추가
     private bool ourTeamGameOver = false;
@@ -12,7 +12,7 @@ public class Game_end : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ourHealth = FindObjectOfType<Helath_our>();
+        ourHealth = FindObjectOfType<Health_our>();
         anotherHealth = FindObjectOfType<Another_health>();
         timer = FindObjectOfType<Timer>(); // Timer 컴포넌트 찾기
     }

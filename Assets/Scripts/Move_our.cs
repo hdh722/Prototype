@@ -13,6 +13,24 @@ public class Move_our : MonoBehaviour
 
     public GameObject hitParticlePrefab; // 파티클 프리팹 연결
 
+    private SpriteRenderer minerWalkRenderer;
+    private SpriteRenderer minerMiningRenderer;
+
+    void Start()
+    {
+        // 자식 오브젝트에서 Miner_walk, Miner_mining의 SpriteRenderer를 찾음
+        Transform walk = transform.Find("Miner_walk");
+        Transform mining = transform.Find("Miner_mining");
+        if (walk != null)
+            minerWalkRenderer = walk.GetComponent<SpriteRenderer>();
+        if (mining != null)
+            minerMiningRenderer = mining.GetComponent<SpriteRenderer>();
+
+        // 시작 시 모두 비활성화
+        if (minerWalkRenderer != null) minerWalkRenderer.enabled = false;
+        if (minerMiningRenderer != null) minerMiningRenderer.enabled = false;
+    }
+
     void Update()
     {
         if (isMoving)
@@ -34,6 +52,16 @@ public class Move_our : MonoBehaviour
                 }
             }
         }
+
+        UpdateMinerSprite();
+    }
+
+    void UpdateMinerSprite()
+    {
+        if (minerWalkRenderer != null)
+            minerWalkRenderer.enabled = isMoving;
+        if (minerMiningRenderer != null)
+            minerMiningRenderer.enabled = !isMoving;
     }
 
     void AttackAction()

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Helath_our : MonoBehaviour
+public class Health_our : MonoBehaviour
 {
     [Header("우리팀 체력")]
     public int health = 200; // 초기 체력

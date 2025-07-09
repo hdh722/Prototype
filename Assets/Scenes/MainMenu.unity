@@ -442,9 +442,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ClickEvent_Test, Assembly-CSharp
-        m_MethodName: ButtonClickEvent
+      - m_Target: {fileID: 1687374007}
+        m_TargetAssemblyTypeName: Button_Event, Assembly-CSharp
+        m_MethodName: GameOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

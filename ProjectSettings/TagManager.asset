@@ -11,6 +11,7 @@ TagManager:
   - Small_Stone
   - Gameclear_ui
   - LockStone
+  - SpawnArea
   layers:
   - Default
   - TransparentFX

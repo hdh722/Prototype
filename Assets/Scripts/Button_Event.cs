@@ -44,7 +44,6 @@ public class Button_Event : MonoBehaviour
     }
     public void RestartGame()
     {
-        Debug.Log("게임 재시작");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
         isPaused = false;
@@ -52,41 +51,38 @@ public class Button_Event : MonoBehaviour
     }
     public void Giveup()
     {
-        Debug.Log("게임 포기");
         SceneManager.LoadScene("Lobby");
     }
-    public void Setting()
+    public void GoTitle()
     {
-        Debug.Log("설정");
+        SceneManager.LoadScene("MainMenu");
     }
     public void Stage1()
     {
         Time.timeScale = 1f;
-        Debug.Log("게임 시작");
         SceneManager.LoadScene("Stage_1");
     }
     public void Stage2()
     {
         Time.timeScale = 1f;
-        Debug.Log("게임 시작");
         SceneManager.LoadScene("Stage_2");
     }
     public void Stage3()
     {
         Time.timeScale = 1f;
-        Debug.Log("게임 시작");
         SceneManager.LoadScene("Stage_3");
     }
     public void Stage4()
     {
         Time.timeScale = 1f;
-        Debug.Log("게임 시작");
         SceneManager.LoadScene("Stage_4");
     }
     public void Touchtostart()
     {
-        Debug.Log("게임 입장");
         SceneManager.LoadScene("Lobby");
     }
-
+    public void GameOff()
+    {
+        Application.Quit();
+    }
 }
